@@ -49,7 +49,7 @@ $(document).ready(function() {
 			</tr>
 			<tr>
 				<td>이메일</td>
-				<td><input type="text" id="username" name="username" placeholder=""></td>
+				<td><input type="text" id="username" name="useremail" placeholder=""></td>
 			</tr>
 			<tr>
 				<td>주소</td>
@@ -57,11 +57,7 @@ $(document).ready(function() {
 			</tr>
 			<tr>
 				<td>전화번호</td>
-				<td><input type="text" id="phone" name="phone" placeholder=""></td>
-			</tr>
-			<tr>
-				<td>아이디</td>
-				<td><input type="text" id="userid" name="userid" placeholder=""></td>
+				<td><input type="text" id="phone" name="tel" placeholder=""></td>
 			</tr>
 		</table>
 		<br>
