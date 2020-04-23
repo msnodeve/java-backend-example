@@ -5,7 +5,7 @@ import com.model.dto.User;
 public interface UserServiceInterface {
 	public void signIn(User user) throws Exception;
 	
-	public void login(String id, String pw) throws Exception;
+	public User login(String id, String pw) throws Exception;
 	
 	public User getUser(String id) throws Exception;
 	

@@ -7,7 +7,7 @@ import com.model.dto.User;
 public interface UserDaoInterface {
 	public void signIn(User user) throws SQLException;
 	
-	public void login(String id, String pw) throws SQLException;
+	public User login(String id, String pw) throws SQLException;
 	
 	public User getUser(String id) throws SQLException;
 	

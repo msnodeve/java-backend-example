@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.dto.User;
 import com.service.UserService;
@@ -80,10 +81,25 @@ public class UserController extends HttpServlet {
 	
 	private void login(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String path = "/index.jsp";
 		String id = request.getParameter("userid");
 		String pw = request.getParameter("userpwd");
 		
-		System.out.println(id + " " + pw);
+		try {
+			User user = userService.login(id, pw);
+			if(user != null) {
+				HttpSession session = request.getSession();
+				session.setAttribute("userinfo", user);
+			}else {
+				request.setAttribute("msg", "아이디 또는 비밀번호를 확인 해 주세요.");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			request.setAttribute("msg", "로그인 중 에러 발생");
+			path = "/error/error.jsp";
+			forward(request, response, path);
+		}
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 	
 	private void forward(HttpServletRequest request, HttpServletResponse response, String path)

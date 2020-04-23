@@ -10,7 +10,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#registerBtn").click(function() {
-		if($("#username").val() == "") {
+		if($("#useremail").val() == "") {
 			alert("이름 입력!!!");
 			return;
 		} else if($("#userid").val() == "") {
@@ -49,7 +49,7 @@ $(document).ready(function() {
 			</tr>
 			<tr>
 				<td>이메일</td>
-				<td><input type="text" id="username" name="useremail" placeholder=""></td>
+				<td><input type="text" id="useremail" name="useremail" placeholder=""></td>
 			</tr>
 			<tr>
 				<td>주소</td>
