@@ -1,62 +1,58 @@
--- ë„ì„œ
+-- µµ¼­
 CREATE TABLE book (
-	isbn        INT          NOT NULL, -- ë„ì„œ ID
-	pno         INT          NOT NULL, -- ì¶œíŒì‚¬ ID
-	title       VARCHAR(50)  NULL,     -- ì œëª©
-	author      VARCHAR(30)  NULL,     -- ì €ì
-	description VARCHAR(100) NULL,     -- ì„¤ëª…
-	price       INT          NULL,     -- ê°€ê²©
-	date        DATE         NULL      -- ì¶œíŒì¼
+	isbn        INT          NOT NULL, -- µµ¼­ ID
+	pno         INT          NOT NULL, -- ÃâÆÇ»ç ID
+	title       VARCHAR(50)  NULL,     -- Á¦¸ñ
+	author      VARCHAR(30)  NULL,     -- ÀúÀÚ
+	description VARCHAR(100) NULL,     -- ¼³¸í
+	price       INT          NULL,     -- °¡°İ
+	date        DATE         NULL      -- ÃâÆÇÀÏ
 );
 
--- ë„ì„œ
+-- µµ¼­
 ALTER TABLE book
-	ADD CONSTRAINT PK_book -- ë„ì„œ ê¸°ë³¸í‚¤
+	ADD CONSTRAINT PK_book -- µµ¼­ ±âº»Å°
 		PRIMARY KEY (
-			isbn, -- ë„ì„œ ID
-			pno   -- ì¶œíŒì‚¬ ID
+			isbn, -- µµ¼­ ID
+			pno   -- ÃâÆÇ»ç ID
 		);
 
--- ì¶œíŒì‚¬
+-- ÃâÆÇ»ç
 CREATE TABLE publisher (
-	pno       INT          NOT NULL, -- ì¶œíŒì‚¬ ID
-	publisher VARCHAR(50)  NULL,     -- ì¶œíŒì‚¬ ì´ë¦„
-	address   VARCHAR(100) NULL      -- ì£¼ì†Œ
+	pno       INT          NOT NULL, -- ÃâÆÇ»ç ID
+	publisher VARCHAR(50)  NULL,     -- ÃâÆÇ»ç ÀÌ¸§
+	address   VARCHAR(100) NULL      -- ÁÖ¼Ò
 );
 
--- ì¶œíŒì‚¬
+-- ÃâÆÇ»ç
 ALTER TABLE publisher
-	ADD CONSTRAINT PK_publisher -- ì¶œíŒì‚¬ ê¸°ë³¸í‚¤
+	ADD CONSTRAINT PK_publisher -- ÃâÆÇ»ç ±âº»Å°
 		PRIMARY KEY (
-			pno -- ì¶œíŒì‚¬ ID
+			pno -- ÃâÆÇ»ç ID
 		);
 
--- ì‚¬ìš©ì
+-- »ç¿ëÀÚ
 CREATE TABLE user (
-	uid     INT          NOT NULL, -- ID
-	id      VARCHAR(30)  NULL,     -- ì‚¬ìš©ì ID
-	pw      VARCHAR(30)  NULL,     -- ì‚¬ìš©ì PW
-	email   VARCHAR(30)  NULL,     -- ì´ë©”ì¼
-	address VARCHAR(100) NULL,     -- ì£¼ì†Œ
-	tel     VARCHAR(20)  NULL      -- ì „í™”ë²ˆí˜¸
+	id      VARCHAR(30)  NOT NULL, -- »ç¿ëÀÚ ID
+	pw      VARCHAR(30)  NULL,     -- »ç¿ëÀÚ PW
+	email   VARCHAR(30)  NULL,     -- ÀÌ¸ŞÀÏ
+	address VARCHAR(100) NULL,     -- ÁÖ¼Ò
+	tel     VARCHAR(20)  NULL      -- ÀüÈ­¹øÈ£
 );
 
--- ì‚¬ìš©ì
+-- »ç¿ëÀÚ
 ALTER TABLE user
-	ADD CONSTRAINT PK_user -- ì‚¬ìš©ì ê¸°ë³¸í‚¤
+	ADD CONSTRAINT PK_user -- »ç¿ëÀÚ ±âº»Å°
 		PRIMARY KEY (
-			uid -- ID
+			id -- »ç¿ëÀÚ ID
 		);
 
-ALTER TABLE user
-	MODIFY COLUMN uid INT NOT NULL AUTO_INCREMENT;
-
--- ë„ì„œ
+-- µµ¼­
 ALTER TABLE book
-	ADD CONSTRAINT FK_publisher_TO_book -- ì¶œíŒì‚¬ -> ë„ì„œ
+	ADD CONSTRAINT FK_publisher_TO_book -- ÃâÆÇ»ç -> µµ¼­
 		FOREIGN KEY (
-			pno -- ì¶œíŒì‚¬ ID
+			pno -- ÃâÆÇ»ç ID
 		)
-		REFERENCES publisher ( -- ì¶œíŒì‚¬
-			pno -- ì¶œíŒì‚¬ ID
+		REFERENCES publisher ( -- ÃâÆÇ»ç
+			pno -- ÃâÆÇ»ç ID
 		);
