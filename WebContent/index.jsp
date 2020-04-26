@@ -23,8 +23,8 @@
 				<strong>${ userinfo.id }</strong>님 환영합니다.
 				<br>정상적으로 로그인 되었습니다.<br><br>
 				<div>
-					<a href="${ root }/">도서 등록</a>
-					<a href="${ root }/">도서 목록</a>
+					<a href="${ root }/book.do?act=mvinsertbook">도서 등록</a>
+					<a href="${ root }/book.do?act=booklist">도서 목록</a>
 				</div>
 			</div>
 		</c:if>

@@ -44,6 +44,11 @@ public class UserController extends HttpServlet {
 		case "login":
 			login(request, response);
 			break;
+		case "logout":
+			path="/index.jsp";
+			request.getSession().invalidate();
+			forward(request, response, path);
+			break;
 		case "mvjoin":
 			path = "/user/join.jsp";
 			redirect(response, path, root);

@@ -11,7 +11,7 @@
 $(document).ready(function() {
 	$("#registerBtn").click(function() {
 		if($("#useremail").val() == "") {
-			alert("이름 입력!!!");
+			alert("이메일 입력!!!");
 			return;
 		} else if($("#userid").val() == "") {
 			alert("아이디 입력!!!");
